@@ -8,16 +8,18 @@ const Settings = {
 
 /// Post event to Splunk HTTP Event Collector
 function postEventToSplunk(eventData) {
-    xhr = new XMLHttpRequest();
-    xhr.open('POST', Settings.hec, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            LOG(xhr.responseText);
-        } else if (xhr.status != 200) {
-            LOG('post failed: (' + xhr.status + ') ' + xhr.responseText);
-        }
-    };
-    xhr.send(JSON.stringify({event: eventData}));
+//    xhr = new XMLHttpRequest();
+//    xhr.open('POST', Settings.hec, true);
+//    xhr.onreadystatechange = function () {
+//        if (xhr.readyState == 4 && xhr.status == 200) {
+//            LOG(xhr.responseText);
+//        } else if (xhr.status != 200) {
+//            LOG('post failed: (' + xhr.status + ') ' + xhr.responseText);
+//        }
+//    };
+//    xhr.send(JSON.stringify({event: eventData}));
+//    LOG("Event : "+eventData.toSource());
+    LOG("Event : "+JSON.stringify(eventData, null, 4));
 }
 
 /// Setup event listeners
